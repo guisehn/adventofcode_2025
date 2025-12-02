@@ -12,6 +12,9 @@ function isInvalidId(id: number) {
   return false;
 }
 
+// splitId('123456', 2) -> ['123', '456']
+// splitId('123456', 3) -> ['12', '34', '56']
+// splitId('123456', 4) -> ['1', '2', '3', '4', '5', '6']
 function splitId(id: string, parts: number) {
   if (id.length % parts !== 0) return null;
 
@@ -21,10 +24,7 @@ function splitId(id: string, parts: number) {
   return result;
 }
 
-function allEqual(arr: string[]) {
-  return arr.every((item) => item === arr[0]);
-}
-
+// rangeToList([1, 5]) -> [1, 2, 3, 4, 5]
 function rangeToList([start, end]: IdRange) {
   let list: number[] = [];
   for (let i = start; i <= end; i++) list.push(i);
@@ -45,6 +45,8 @@ function readInput() {
 }
 
 const sum = (arr: number[]) => arr.reduce((acc, curr) => acc + curr, 0);
+
+const allEqual = (arr: any[]) => arr.every((item) => item === arr[0]);
 
 function solve() {
   const input = readInput();
